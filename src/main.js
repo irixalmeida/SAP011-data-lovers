@@ -34,7 +34,7 @@ document.querySelector("#list").innerHTML = listFilms.join("");
 function updateFilmList(films) {
   filmList.innerHTML = ""; // Limpar o conteúdo atual
 
-  films.forEach(film => {
+  films.forEach((film) => {
     const filmItem = createFilmItem(film);
     filmList.innerHTML += filmItem;
   });
@@ -45,7 +45,7 @@ directorSelect.addEventListener("change", filterByDirector);
 function filterByDirector() {
   const selectByDirector = directorSelect.value;
 
-  const filteredFilmsByDirector = data.films.filter(film => {
+  const filteredFilmsByDirector = data.films.filter((film) => {
     return film.director === selectByDirector;
   });
 
@@ -57,7 +57,7 @@ function getFilteredFilms() {
   const selectByDirector = directorSelect.value;
 
   if (selectByDirector) {
-    return data.films.filter(film => film.director === selectByDirector);
+    return data.films.filter((film) => film.director === selectByDirector);
   } else {
     return data.films;
   }
@@ -71,22 +71,41 @@ function handleOrderChange() {
   const sortedFilms = data.films.slice(); // Copia o array original para não modificá-lo diretamente
 
   if (selectedOption === "A-Z") {
-
-    sortedFilms.sort(function(a, b) {
+    sortedFilms.sort(function (a, b) {
       return a.title.localeCompare(b.title);
     });
   } else if (selectedOption === "Z-A") {
-  
-    sortedFilms.sort(function(a, b) {
+    sortedFilms.sort(function (a, b) {
       return b.title.localeCompare(a.title);
     });
   }
   console.log(sortedFilms);
 }
-  
+
 //updateFilmList(sortedFilms)
 
+function showModal(film) {
+  const modal = document.querySelector("#filmModal");
+  const modalTitle = document.querySelector("#modalTitle");
+  const modalPoster = document.querySelector("#modalPoster");
+  const modalDescription = document.querySelector("#modalDescription");
+  const charactersList = document.querySelector("#charactersList");
 
+  modalTitle.textContent = film.title;
+  modalPoster.src = film.poster;
+  modalDescription.textContent = film.description;
 
+  // Supondo que film.characters é um array com os personagens e suas informações
+  let charactersHTML = "";
+  film.characters.forEach((character) => {
+    charactersHTML += `
+        <div class="character-card">
+            <img src="${character.image}" alt="${character.name}">
+            <h3>${character.name}</h3>
+        </div>
+        `;
+  });
+  charactersList.innerHTML = charactersHTML;
 
-
+  modal.style.display = "block";
+}
