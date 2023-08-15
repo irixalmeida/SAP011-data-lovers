@@ -14,6 +14,29 @@
   <p id="title"></p>
   <p id="description"></p>
 
+
+  <form action="" method="" autocomplete="">
+    <label for="director">Diretor:</label>
+    <select name="diretor" id="director">
+      <option value="" selected>--- Escolha ---</option>
+      <option value="Hayao Miyazaki">Hayao Miyazaki</option>
+      <option value="Isao Takahata">Isao Takahata</option>
+      <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+      <option value="Gorō Miyazaki">Gorō Miyazaki</option>
+      <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+      <option value="Hiroyuki Morita">Hiroyuki Morita</option>
+    </select>
+
+    <label for="order">Ordenação</label>
+    <select name="ordenação" id="order">
+      <option value="A-Z" id="orderCresc">A-Z</option>
+      <option value="Z-A" id="orderDecr">Z-A</option>
+    </select>
+
+    <input type="reset" value="Limpar">
+    <input type="submit" value="Enviar">
+  </form>
+
   <div id="list"></div>
 
   </div>
