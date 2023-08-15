@@ -1,4 +1,4 @@
-import { example } from "./data.js";
+import { filterByDirector } from "./data.js";
 // import data from './data/lol/lol.js';
 import data from "./data/ghibli/ghibli.js";
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -39,29 +39,12 @@ function updateFilmList(films) {
     filmList.innerHTML += filmItem;
   });
 }
-
-directorSelect.addEventListener("change", filterByDirector);
-
-function filterByDirector() {
-  const selectByDirector = directorSelect.value;
-
-  const filteredFilmsByDirector = data.films.filter((film) => {
-    return film.director === selectByDirector;
-  });
-
-  updateFilmList(filteredFilmsByDirector);
+function handleDirectorSelectChange() {
+  const filteredFilms = filterByDirector(directorSelect.value, data);
+  updateFilmList(filteredFilms);
 }
 
-// Função para retornar um novo array filtrado
-function getFilteredFilms() {
-  const selectByDirector = directorSelect.value;
-
-  if (selectByDirector) {
-    return data.films.filter((film) => film.director === selectByDirector);
-  } else {
-    return data.films;
-  }
-}
+directorSelect.addEventListener("change", handleDirectorSelectChange);
 
 orderSelect.addEventListener("change", handleOrderChange);
 
