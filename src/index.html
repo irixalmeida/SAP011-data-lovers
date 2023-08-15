@@ -10,11 +10,24 @@
 <body>
   <div id="root"></div>
   <script src="main.js" type="module"></script>
-  <img src="" alt="" id="poster">
-  <p id="title"></p>
-  <p id="description"></p>
 
+ <header>
+<nav>
+  <ul>
+    <li>Home</li>
+    <li>Filmografia</li>
+  </ul>
+</nav>
+</header>
 
+<main>
+  <figure>
+    <img src="" alt="" id="poster">
+    <p id="title"></p>
+    <p id="description"></p>
+  </figure>
+
+  <section>
   <form action="" method="" autocomplete="">
     <label for="director">Diretor:</label>
     <select name="diretor" id="director">
@@ -26,7 +39,7 @@
       <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
       <option value="Hiroyuki Morita">Hiroyuki Morita</option>
     </select>
-
+    
     <label for="order">Ordenação</label>
     <select name="ordenação" id="order">
       <option value="A-Z" id="orderCresc">A-Z</option>
@@ -36,10 +49,13 @@
     <input type="reset" value="Limpar">
     <input type="submit" value="Enviar">
   </form>
+</section>
 
   <div id="list"></div>
 
   </div>
+</main>
+
 </body>
 
 </html>
