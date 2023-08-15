@@ -8,7 +8,7 @@ style.css style.css * {
     display: flex;
     flex-wrap: wrap;
 
-    justify-content: space-between;
+    justify-content: start;
     align-items: start;
     margin: 0 auto;
     padding: 0;
