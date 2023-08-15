@@ -1,4 +1,4 @@
-import { filterByDirector } from "./data.js";
+import {filterByDirector, handleOrderChange} from "./data.js";
 // import data from './data/lol/lol.js';
 import data from "./data/ghibli/ghibli.js";
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -29,6 +29,7 @@ const listFilms = data.films.map((film) => {
 
   return templateItem;
 });
+
 document.querySelector("#list").innerHTML = listFilms.join("");
 
 
@@ -40,37 +41,39 @@ function updateFilmList(films) {
     filmList.innerHTML += filmItem;
   });
 }
-function handleDirectorSelectChange() {
+
+//Função que é executada sempre que houver uma alteração no elemento HTML com o ID directorSelect
+function handleDirectorSelectionChange() {
   const filteredFilms = filterByDirector(directorSelect.value, data);
   updateFilmList(filteredFilms);
 }
 
-directorSelect.addEventListener("change", handleDirectorSelectChange);
+// Isso garante que a lista de filmes seja atualizada de acordo com a seleção do diretor
+directorSelect.addEventListener("change", handleDirectorSelectionChange);
 
 
 
-orderSelect.addEventListener("change", handleOrderChange);
+//updatedFilmListBasedOnOrder(sortedFilms)
 
-function handleOrderChange() {
-  const selectedOption = orderSelect.value;
+function updatedFilmListBasedOnOrder(sortedFilms){
+  filmList.innerHTML = "";
 
-  const sortedFilms = data.films.slice(); // Copia o array original para não modificá-lo diretamente
-
-  if (selectedOption === "A-Z") {
-
-    sortedFilms.sort(function (a, b) {
-      return a.title.localeCompare(b.title);
-    });
-  } else if (selectedOption === "Z-A") {
-
-    sortedFilms.sort(function (a, b) {
-      return b.title.localeCompare(a.title);
-    });
-  }
-  console.log(sortedFilms);
+  sortedFilms.forEach(film => {
+    const filmItem = createFilmItem(film);
+    filmList.innerHTML += filmItem;
+  });
 }
 
-//updateFilmList(sortedFilms)
+function handleOrderSelectionChange() {
+  const filmOrderChange = handleOrderChange(orderSelect.value, data);
+  updatedFilmListBasedOnOrder(filmOrderChange);
+}
+
+orderSelect.addEventListener("change", handleOrderSelectionChange);
+
+
+
+
 
 
 
