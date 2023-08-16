@@ -9,7 +9,7 @@
 
 <body>
   <div id="root"></div>
-  <script src="main.js" type="module"></script>
+
 
   <header>
     <nav>
@@ -54,20 +54,19 @@
     <div id="list"></div>
 
     </div>
-
-    <div id="filmModal" class="modal">
+    <div class="modal" id="filmModal">
       <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2 id="modalTitle"></h2>
-        <img src="" alt="" id="modalPoster">
-        <p id="modalDescription"></p>
+
+        <span class="close-button" id="closeModal">&times;</span>
+        <div id="filmDetails"></div>
         <div id="charactersList"></div>
       </div>
     </div>
 
 
-  </main>
 
+  </main>
+  <script src="main.js" type="module"></script>
 </body>
 
 </html>

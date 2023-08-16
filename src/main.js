@@ -8,9 +8,21 @@ const orderSelect = document.querySelector("#order");
 const filterForm = document.querySelector("form");
 const filmList = document.querySelector("#list");
 
+//modal
+let modal = document.getElementById("filmModal");
+let span = document.getElementById("closeModal");
+
+filmList.addEventListener("click", function (event) {
+  if (event.target.closest(".film-item")) {
+    const filmId = event.target.closest(".film-item").getAttribute("data-id");
+    showModal(filmId);
+  }
+});
+
+//Isso define a função chamada createFilmItem com um parâmetro film. A função será responsável por criar o HTML do item de filme com base nas informações fornecidas.Ela cria um elemento de filme em HTML dinamicamente. Ela recebe o objeto `film` como argumento e retorna uma string que contém o HTML formatado com base nas informações do filme.
 function createFilmItem(film) {
   const filmItem = `
-      <div class="film-item">
+      <div class="film-item" data-id="${film.id}">
           <div class="film-item-front">
               <img src="${film.poster}" class="film-poster">
               <h3>${film.title}</h3>
@@ -24,6 +36,56 @@ function createFilmItem(film) {
 
   return filmItem;
 }
+
+//Nessa função chamada showModal, o parâmetro filmId é passado para a função. O objetivo dela é exibir um modal com as informações do filme. Ela encontra o filme correto no dataset usando o filmId. Em seguida, preenche as informações do filme no modal. Por fim, preenche a lista de personagens.
+function showModal(filmId) {
+  // Encontre o filme correto no dataset usando o filmId
+  const selectedFilm = data.films.find((film) => film.id === filmId);
+
+  // Preencha as informações do filme no modal
+  document.getElementById("filmDetails").innerHTML = `
+    <img src="${selectedFilm.poster}" alt="${selectedFilm.title}" class="film-poster-in-modal">
+    <h3>${selectedFilm.title}</h3>
+    <p>Descrição: ${selectedFilm.description}</p>
+    <p>Diretor: ${selectedFilm.director}</p>
+    <p>Produtor: ${selectedFilm.producer}</p>
+    <p>Data de Lançamento: ${selectedFilm.release_date}</p>
+    <p>Pontuação RT: ${selectedFilm.rt_score}</p>
+  `;
+
+  // Preencha a lista de personagens
+  const charactersCards = selectedFilm.people
+    .map(
+      (character) => `
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="${character.img}" alt="${character.name}" style="width:100%;height:100%;">
+            <p>${character.name}</p>
+          </div>
+          <div class="flip-card-back">
+            <h4>${character.name}</h4>
+            <p>Gênero: ${character.gender}</p>
+            <p>Idade: ${character.age}</p>
+            <p>Cor dos Olhos: ${character.eye_color}</p>
+            <p>Cor do Cabelo: ${character.hair_color}</p>
+            <p>Espécie: ${character.specie}</p>
+          </div>
+        </div>
+      </div>
+    `
+    )
+    .join("");
+
+  document.getElementById("charactersList").innerHTML = `
+       <h4>Personagens:</h4>
+       ${charactersCards}
+    `;
+
+  // No futuro, você pode usar o filmId para buscar os detalhes do filme e exibir no modal
+  modal.style.display = "block";
+}
+
 const listFilms = data.films.map((film) => {
   const templateItem = createFilmItem(film);
 
@@ -65,30 +127,14 @@ function handleOrderChange() {
   console.log(sortedFilms);
 }
 
-//updateFilmList(sortedFilms)
+// Quando o "X" é clicado, o modal é fechado
+span.onclick = function () {
+  modal.style.display = "none";
+};
 
-function showModal(film) {
-  const modal = document.querySelector("#filmModal");
-  const modalTitle = document.querySelector("#modalTitle");
-  const modalPoster = document.querySelector("#modalPoster");
-  const modalDescription = document.querySelector("#modalDescription");
-  const charactersList = document.querySelector("#charactersList");
-
-  modalTitle.textContent = film.title;
-  modalPoster.src = film.poster;
-  modalDescription.textContent = film.description;
-
-  // Supondo que film.characters é um array com os personagens e suas informações
-  let charactersHTML = "";
-  film.characters.forEach((character) => {
-    charactersHTML += `
-        <div class="character-card">
-            <img src="${character.image}" alt="${character.name}">
-            <h3>${character.name}</h3>
-        </div>
-        `;
-  });
-  charactersList.innerHTML = charactersHTML;
-
-  modal.style.display = "block";
-}
+// Se o usuário clicar fora do conteúdo do modal, ele também será fechado
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
