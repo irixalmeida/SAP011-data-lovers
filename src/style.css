@@ -111,6 +111,15 @@ section {
     max-height: 90%;
     overflow: auto;
     border-radius: 8px;
+    background-color: #fff;
+    color: #111;
+}
+
+.modal-content .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
 }
 
 .close-button {
