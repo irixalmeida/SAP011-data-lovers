@@ -4,21 +4,21 @@ style.css style.css * {
     box-sizing: border-box;
 }
 
-body{
+body {
     background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-#logo{
+#logo {
     width: 200px;
 }
 
-nav{
+nav {
     color: white;
 }
 
-section{
+section {
     margin-bottom: 60px;
 }
 
@@ -105,7 +105,7 @@ section{
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background-color: white;
+
     width: 80%;
     max-width: 800px;
     max-height: 90%;

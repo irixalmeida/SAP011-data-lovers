@@ -1,4 +1,5 @@
-import { filterByDirector, handleOrderChange } from "./data.js";
+import { filterByDirector, handleOrderChange, computeStats } from "./data.js";
+
 // import data from './data/lol/lol.js';
 import data from "./data/ghibli/ghibli.js";
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -39,6 +40,17 @@ function createFilmItem(film) {
 
 //Nessa função chamada showModal, o parâmetro filmId é passado para a função. O objetivo dela é exibir um modal com as informações do filme. Ela encontra o filme correto no dataset usando o filmId. Em seguida, preenche as informações do filme no modal. Por fim, preenche a lista de personagens.
 function showModal(filmId) {
+  const film = films.find((f) => f.id === filmId);
+  const percentage = computeStats(filmId);
+
+  // Limpar o conteúdo anterior
+  //modalContent.innerHTML = "";
+
+  // Agora, adicione o novo conteúdo
+  const modalContent = document.querySelector("#modal-content-id");
+  modalContent.innerHTML = "";
+  modalContent.innerHTML += `<p>O filme ${film.title} representa ${percentage}% do total de personagens.</p>`;
+
   // Encontre o filme correto no dataset usando o filmId
   const selectedFilm = data.films.find((film) => film.id === filmId);
 

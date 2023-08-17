@@ -43,3 +43,20 @@ export function handleOrderChange(orderSelect, data) {
   }
   return sortedFilms;
 }
+
+// Função que calcula a porcentagem de personagens de um filme específico
+function getTotalCharacters() {
+  return films.reduce((acc, film) => acc + film.people.length, 0);
+}
+
+function getCharactersForFilm(filmId) {
+  const film = films.find((f) => f.id === filmId);
+  return film ? film.people.length : 0;
+}
+
+export function computeStats(filmId) {
+  const totalCharacters = getTotalCharacters();
+  const charactersForFilm = getCharactersForFilm(filmId);
+  const percentage = (charactersForFilm / totalCharacters) * 100;
+  return percentage.toFixed(2);
+}
