@@ -1,29 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
   <div id="root"></div>
   <script src="main.js" type="module"></script>
 
-  <header>
-    <figure>
-      <img src="./img/logo-studio-ghibli-branco.png" alt="LogoStudioGhibli" id="logo">
+  <header class="container">
+    <figure class="item" id="logo">
+      <a href="https://studioghibli.com.br/studioghibli/" target="_blank"><img src="./img/logo-studio-ghibli-branco.png"
+          alt="LogoStudioGhibli" id="logo"></a>
     </figure>
-    <nav>
+    <nav class="item" id="menu">
       <ul>
-        <li>Home</li>
-        <li>Filmografia</li>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="index.html">Filmografia</a></li>
+        <li><a
+            href="https://www.netflix.com/br/browse/genre/81227213#:~:text=Studio%20Ghibli%20Movies%20%7C%20Site%20oficial%20da%20Netflix"
+            target="_blank">Assistir aos filmes</a></li>
       </ul>
     </nav>
-    <figure>
+    <!-- <figure class="item">
       <img src="./img/Totoro.png" alt="Totoro" id="totoro">
-    </figure>
+    </figure> -->
   </header>
 
   <main>
@@ -35,9 +42,9 @@
 
     <section>
       <form action="" method="" autocomplete="">
-        <label for="director">Diretor:</label>
+        <label for="director"></label>
         <select name="diretor" id="director">
-          <option value="" selected>--- Escolha ---</option>
+          <option value="" selected>Escolha um diretor</option>
           <option value="Hayao Miyazaki">Hayao Miyazaki</option>
           <option value="Isao Takahata">Isao Takahata</option>
           <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
@@ -46,14 +53,37 @@
           <option value="Hiroyuki Morita">Hiroyuki Morita</option>
         </select>
 
-        <label for="order">Ordenação</label>
+        <label for="order"></label>
         <select name="ordenação" id="order">
+          <option value="" selected>Ordenar</option>
           <option value="A-Z" id="orderCresc">A-Z</option>
           <option value="Z-A" id="orderDecr">Z-A</option>
         </select>
 
+        <label for="releaseDate"></label>
+        <select name="releaseDate" id="releaseDate">
+          <option value="" selected>Ano de lançamento</option>
+          <option value="1986">1986</option>
+          <option value="1988">1988</option>
+          <option value="1989">1989</option>
+          <option value="1991">1991</option>
+          <option value="1992">1992</option>
+          <option value="1994">1994</option>
+          <option value="1995">1995</option>
+          <option value="1997">1997</option>
+          <option value="1999">1999</option>
+          <option value="2001">2001</option>
+          <option value="2002">2002</option>
+          <option value="2004">2004</option>
+          <option value="2006">2006</option>
+          <option value="2008">2008</option>
+          <option value="2010">2010</option>
+          <option value="2011">2011</option>
+          <option value="2013">2013</option>
+          <option value="2014">2014</option>
+        </select>
+
         <input type="reset" value="Limpar">
-        <input type="submit" value="Enviar">
       </form>
     </section>
 

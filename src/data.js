@@ -28,7 +28,7 @@ function getFilteredFilms() {
   }
 }
 
-export function handleOrderChange(orderSelect, data){
+export function handleOrderChange(orderSelect, data) {
 
   const sortedFilms = data.films.slice(); // Copia o array original para não modificá-lo diretamente
 
@@ -45,3 +45,22 @@ export function handleOrderChange(orderSelect, data){
   }
   return sortedFilms;
 }
+
+export function filterByReleaseDate(selectByDate, data) {
+  const filteredFilmsByReleaseDate = data.films.filter(film => {
+    return film.release_date === selectByDate;
+  })
+  return filteredFilmsByReleaseDate
+}
+
+function getFilteredFilmsByDate() {
+  const selectByDate = dateSelect.value;
+
+  if (selectByDate) {
+    return data.films.filter(film => film.release_date === selectByDate);
+  } else {
+    return data.films;
+  }
+}
+
+// computeStats(data)

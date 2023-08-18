@@ -1,10 +1,11 @@
-import {filterByDirector, handleOrderChange} from "./data.js";
+import {filterByDirector, filterByReleaseDate, handleOrderChange} from "./data.js";
 // import data from './data/lol/lol.js';
 import data from "./data/ghibli/ghibli.js";
 // import data from './data/rickandmorty/rickandmorty.js';
 
 const directorSelect = document.querySelector("#director");
 const orderSelect = document.querySelector("#order");
+const dateSelect = document.querySelector("#releaseDate");
 const filterForm = document.querySelector("form");
 const filmList = document.querySelector("#list");
 
@@ -51,10 +52,6 @@ function handleDirectorSelectionChange() {
 // Isso garante que a lista de filmes seja atualizada de acordo com a seleção do diretor
 directorSelect.addEventListener("change", handleDirectorSelectionChange);
 
-
-
-//updatedFilmListBasedOnOrder(sortedFilms)
-
 function updatedFilmListBasedOnOrder(sortedFilms){
   filmList.innerHTML = "";
 
@@ -70,6 +67,22 @@ function handleOrderSelectionChange() {
 }
 
 orderSelect.addEventListener("change", handleOrderSelectionChange);
+
+function updatedFilmListBaseOnDate(films) {
+  filmList.innerHTML = ""; // Limpar o conteúdo atual
+
+  films.forEach(film => {
+    const filmItem = createFilmItem(film);
+    filmList.innerHTML += filmItem;
+  });
+}
+
+function handleDateSelectionChange(){
+  const filteredFilmsByDate = filterByReleaseDate(dateSelect.value, data);
+  updatedFilmListBaseOnDate(filteredFilmsByDate);
+}
+
+dateSelect.addEventListener("change", handleDateSelectionChange);
 
 
 
