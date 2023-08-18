@@ -74,6 +74,47 @@ form {
     align-items: end;
 }
 
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 200px;
+    padding: 10px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 6px solid white;
+    border-radius: 20px;
+    background-image: url("./img/expandMore.png");
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: 150px 0;
+    outline: none;
+    box-shadow: 0 0 20px rgba(20,20,30,0,25);
+}
+
+select::-ms-expand{
+    display: none;
+}
+
+select::hover{
+    border: 6px solid black;
+}
+
+select option{
+    background-color: white;
+    letter-spacing: 1.2px;
+    font-weight: 400;
+    font-size: 12px;
+}
+.selected{
+    display: none;
+}
+
 #list {
     display: flex;
     flex-wrap: wrap;
