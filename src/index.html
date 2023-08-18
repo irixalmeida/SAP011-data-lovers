@@ -5,56 +5,75 @@
   <meta charset="utf-8">
   <title>Data Lovers</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div id="root"></div>
+
+  <header>
+    <figure>
+      <img src="./img/logo-studio-ghibli-branco.png" alt="LogoStudioGhibli" id="logo">
+    </figure>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>Filmografia</li>
+      </ul>
+    </nav>
+    <figure>
+      <img src="./img/Totoro.png" alt="Totoro" id="totoro">
+    </figure>
+  </header>
+
+  <main>
+    <figure>
+      <img src="" alt="" id="poster">
+      <figcaption id="title"></figcaption>
+      <p id="description"></p>
+    </figure>
+
+    <section>
+      <form action="" method="" autocomplete="">
+        <label for="director">Diretor:</label>
+        <select name="diretor" id="director">
+          <option value="" selected>--- Escolha ---</option>
+          <option value="Hayao Miyazaki">Hayao Miyazaki</option>
+          <option value="Isao Takahata">Isao Takahata</option>
+          <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+          <option value="Gorō Miyazaki">Gorō Miyazaki</option>
+          <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+          <option value="Hiroyuki Morita">Hiroyuki Morita</option>
+        </select>
+
+        <label for="order">Ordenação</label>
+        <select name="ordenação" id="order">
+          <option value="A-Z" id="orderCresc">A-Z</option>
+          <option value="Z-A" id="orderDecr">Z-A</option>
+        </select>
+
+        <input type="reset" value="Limpar">
+        <input type="submit" value="Enviar">
+      </form>
+    </section>
+
+    <div id="list"></div>
+
+    <div class="modal" id="filmModal">
+      <div class="modal-content" id="modal-content-id">
+
+        <span class="close-button" id="closeModal">&times;</span>
+
+        <div id="filmDetails"></div>
+        <div id="charactersList"></div>
+        <p id="percentage" class="percentage"></p>
+      </div>
+    </div>
+  </main>
+
   <script src="main.js" type="module"></script>
-
- <header>
-<nav>
-  <ul>
-    <li>Home</li>
-    <li>Filmografia</li>
-  </ul>
-</nav>
-</header>
-
-<main>
-  <figure>
-    <img src="" alt="" id="poster">
-    <p id="title"></p>
-    <p id="description"></p>
-  </figure>
-
-  <section>
-  <form action="" method="" autocomplete="">
-    <label for="director">Diretor:</label>
-    <select name="diretor" id="director">
-      <option value="" selected>--- Escolha ---</option>
-      <option value="Hayao Miyazaki">Hayao Miyazaki</option>
-      <option value="Isao Takahata">Isao Takahata</option>
-      <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
-      <option value="Gorō Miyazaki">Gorō Miyazaki</option>
-      <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
-      <option value="Hiroyuki Morita">Hiroyuki Morita</option>
-    </select>
-    
-    <label for="order">Ordenação</label>
-    <select name="ordenação" id="order">
-      <option value="A-Z" id="orderCresc">A-Z</option>
-      <option value="Z-A" id="orderDecr">Z-A</option>
-    </select>
-
-    <input type="reset" value="Limpar">
-    <input type="submit" value="Enviar">
-  </form>
-</section>
-
-  <div id="list"></div>
-
-  </div>
-</main>
 
 </body>
 

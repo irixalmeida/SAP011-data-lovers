@@ -4,17 +4,33 @@ style.css style.css * {
     box-sizing: border-box;
 }
 
+body {
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#logo {
+    width: 200px;
+}
+
+nav {
+    color: white;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
 #list {
     display: flex;
     flex-wrap: wrap;
-
     justify-content: start;
     align-items: start;
     margin: 0 auto;
     padding: 0;
     list-style: none;
     gap: 20px;
-
     width: 1200px
 }
 
@@ -50,7 +66,6 @@ style.css style.css * {
     backface-visibility: hidden;
     transition: transform .5s ease-out;
     z-index: 1;
-
     transform: translateX(-50%);
 
 }
@@ -68,7 +83,140 @@ style.css style.css * {
     z-index: -1;
     text-align: center;
     transform: translateX(-50%) perspective(1000px) rotateY(180deg);
+    color: #281146;
+    font-size: 14px;
+    background-color: white;
 
-    background-color: burlywood;
+}
 
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    max-height: 90%;
+    overflow: auto;
+    border-radius: 8px;
+    background: linear-gradient(#A18CD1, #FBC2EB, #FBC2EB);
+    color: #281146;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.modal-content .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.film-poster-in-modal {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 150px;
+    height: 200px;
+    perspective: 1000px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.flip-card:hover .flip-card-front {
+    transform: translateX(-50%) perspective(1000px) rotateY(-180deg);
+    z-index: -1;
+}
+
+
+.flip-card:hover .flip-card-back {
+    transform: translateX(-50%) perspective(1000px) rotateY(0deg);
+    z-index: 1;
+}
+
+
+
+.flip-card-front {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 50%;
+    border-radius: 5px;
+    backface-visibility: hidden;
+    transition: transform .5s ease-out;
+    z-index: 1;
+    transform: translateX(-50%);
+}
+
+.flip-card-back {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    text-align: center;
+    backface-visibility: hidden;
+    transition: transform .5s ease-out;
+    z-index: -1;
+    text-align: center;
+    transform: translateX(-50%) perspective(1000px) rotateY(180deg);
+    font-size: 12px;
+    background-color: white;
+}
+
+.percentage {
+    padding: 100px;
+    width: 50%;
+    /* largura do quadrado */
+    height: 100%;
+    /* altura do quadrado */
+    background-color: white;
+    /* cor de fundo branca */
+    padding: 20px;
+    /* espaço interno para afastar o conteúdo das bordas */
+
+    box-sizing: border-box;
+    /* inclui a borda no tamanho total */
+    align-items: center;
 }
