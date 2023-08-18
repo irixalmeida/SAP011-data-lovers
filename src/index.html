@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -45,12 +46,6 @@
         <label for="director"></label>
         <select name="diretor" id="director">
           <option value="" selected class="selected">Escolha um diretor</option>
-          <option value="Hayao Miyazaki">Hayao Miyazaki</option>
-          <option value="Isao Takahata">Isao Takahata</option>
-          <option value="Yoshifumi Kondō">Yoshifumi Kondō</option>
-          <option value="Gorō Miyazaki">Gorō Miyazaki</option>
-          <option value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
-          <option value="Hiroyuki Morita">Hiroyuki Morita</option>
         </select>
 
         <label for="order"></label>
@@ -87,20 +82,20 @@
 
     <div id="list"></div>
 
-    </div>
     <div class="modal" id="filmModal">
-      <div class="modal-content">
+      <div class="modal-content" id="modal-content-id">
 
         <span class="close-button" id="closeModal">&times;</span>
+
         <div id="filmDetails"></div>
         <div id="charactersList"></div>
+        <p id="percentage" class="percentage"></p>
       </div>
     </div>
-
-
-
   </main>
+
   <script src="main.js" type="module"></script>
+
 </body>
 
 </html>

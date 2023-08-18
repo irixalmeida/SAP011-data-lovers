@@ -1,4 +1,9 @@
-import {filterByDirector, filterByReleaseDate, handleOrderChange} from "./data.js";
+import {
+  filterByDirector,
+  filterByReleaseDate,
+  handleOrderChange,
+  computeStats,
+} from "./data.js";
 // import data from './data/lol/lol.js';
 import data from "./data/ghibli/ghibli.js";
 // import data from './data/rickandmorty/rickandmorty.js';
@@ -40,18 +45,30 @@ function createFilmItem(film) {
 
 //Nessa função chamada showModal, o parâmetro filmId é passado para a função. O objetivo dela é exibir um modal com as informações do filme. Ela encontra o filme correto no dataset usando o filmId. Em seguida, preenche as informações do filme no modal. Por fim, preenche a lista de personagens.
 function showModal(filmId) {
+  const film = data.films.find((f) => f.id === filmId);
+  //const percentage = computeStats(filmId);
+  const percentage = computeStats(filmId, data);
+
+  const modalPercentage = document.getElementById("percentage");
+
+  modalPercentage.textContent = `O Filme ${film.title} possui ${percentage}% do total de personagens da franquia`;
+
   // Encontre o filme correto no dataset usando o filmId
   const selectedFilm = data.films.find((film) => film.id === filmId);
 
   // Preencha as informações do filme no modal
   document.getElementById("filmDetails").innerHTML = `
-    <img src="${selectedFilm.poster}" alt="${selectedFilm.title}" class="film-poster-in-modal">
-    <h3>${selectedFilm.title}</h3>
-    <p>Descrição: ${selectedFilm.description}</p>
-    <p>Diretor: ${selectedFilm.director}</p>
-    <p>Produtor: ${selectedFilm.producer}</p>
-    <p>Data de Lançamento: ${selectedFilm.release_date}</p>
-    <p>Pontuação RT: ${selectedFilm.rt_score}</p>
+   <div class="wrap">
+      <img src="${selectedFilm.poster}" alt="${selectedFilm.title}" class="film-poster-in-modal">
+      <div>
+        <h3>${selectedFilm.title}</h3>
+        <p>Descrição: ${selectedFilm.description}</p>
+        <p>Diretor: ${selectedFilm.director}</p>
+        <p>Produtor: ${selectedFilm.producer}</p>
+        <p>Data de Lançamento: ${selectedFilm.release_date}</p>
+        <p>Pontuação RT: ${selectedFilm.rt_score}</p>
+      </div>
+    </div>
   `;
 
   // Preencha a lista de personagens
@@ -113,10 +130,10 @@ function handleDirectorSelectionChange() {
 // Isso garante que a lista de filmes seja atualizada de acordo com a seleção do diretor
 directorSelect.addEventListener("change", handleDirectorSelectionChange);
 
-function updatedFilmListBasedOnOrder(sortedFilms){
+function updatedFilmListBasedOnOrder(sortedFilms) {
   filmList.innerHTML = "";
 
-  sortedFilms.forEach(film => {
+  sortedFilms.forEach((film) => {
     const filmItem = createFilmItem(film);
     filmList.innerHTML += filmItem;
   });
@@ -132,13 +149,13 @@ orderSelect.addEventListener("change", handleOrderSelectionChange);
 function updatedFilmListBaseOnDate(films) {
   filmList.innerHTML = ""; // Limpar o conteúdo atual
 
-  films.forEach(film => {
+  films.forEach((film) => {
     const filmItem = createFilmItem(film);
     filmList.innerHTML += filmItem;
   });
 }
 
-function handleDateSelectionChange(){
+function handleDateSelectionChange() {
   const filteredFilmsByDate = filterByReleaseDate(dateSelect.value, data);
   updatedFilmListBaseOnDate(filteredFilmsByDate);
 }
@@ -155,3 +172,18 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+function makeDirectorOptions() {
+  const directorsList = data.films.map((film) => film.director);
+  // New set remove os valores repetidos de um array
+  const directorsWithoutRepeatedValues = [...new Set(directorsList)];
+
+  const options = directorsWithoutRepeatedValues.map(
+    (director) => ` <option value="${director}">${director}</option>`
+  );
+
+  // Concatena o valor anterior do select com os novos opitions
+  directorSelect.innerHTML += options.join("");
+}
+
+makeDirectorOptions();

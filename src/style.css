@@ -10,6 +10,8 @@ body {
     background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
     color: white;
     font-family: 'Montserrat', sans-serif;
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }
 
 .container {
@@ -74,7 +76,7 @@ form {
     align-items: end;
 }
 
-select{
+select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -94,24 +96,25 @@ select{
     background-size: 30px;
     background-position: 150px 0;
     outline: none;
-    box-shadow: 0 0 20px rgba(20,20,30,0,25);
+    box-shadow: 0 0 20px rgba(20, 20, 30, 0, 25);
 }
 
-select::-ms-expand{
+select::-ms-expand {
     display: none;
 }
 
-select::hover{
+select::hover {
     border: 6px solid black;
 }
 
-select option{
+select option {
     background-color: white;
     letter-spacing: 1.2px;
     font-weight: 400;
     font-size: 12px;
 }
-.selected{
+
+.selected {
     display: none;
 }
 
@@ -176,8 +179,9 @@ select option{
     z-index: -1;
     text-align: center;
     transform: translateX(-50%) perspective(1000px) rotateY(180deg);
-
-    background-color: burlywood;
+    color: #281146;
+    font-size: 14px;
+    background-color: white;
 
 }
 
@@ -190,6 +194,10 @@ select option{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
+    align-items: center;
+    justify-content: center;
+
+
 }
 
 .modal-content {
@@ -198,12 +206,22 @@ select option{
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background-color: white;
     width: 80%;
     max-width: 800px;
     max-height: 90%;
     overflow: auto;
     border-radius: 8px;
+    background: linear-gradient(#A18CD1, #FBC2EB, #FBC2EB);
+    color: #281146;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.modal-content .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
 }
 
 .close-button {
@@ -216,7 +234,9 @@ select option{
 
 .film-poster-in-modal {
     width: 100%;
-    max-width: 200px;
+    height: 250px;
+    object-fit: cover;
+
 }
 
 .flip-card {
@@ -269,14 +289,30 @@ select option{
     top: 0;
     left: 50%;
     width: 100%;
-    height: 250px;
+    height: 100%;
     border-radius: 5px;
-    text-align: right;
+    text-align: center;
     backface-visibility: hidden;
     transition: transform .5s ease-out;
     z-index: -1;
     text-align: center;
     transform: translateX(-50%) perspective(1000px) rotateY(180deg);
+    font-size: 12px;
+    background-color: white;
+}
 
-    background-color: burlywood;
+.percentage {
+    padding: 100px;
+    width: 50%;
+    /* largura do quadrado */
+    height: 100%;
+    /* altura do quadrado */
+    background-color: white;
+    /* cor de fundo branca */
+    padding: 20px;
+    /* espaço interno para afastar o conteúdo das bordas */
+
+    box-sizing: border-box;
+    /* inclui a borda no tamanho total */
+    align-items: center;
 }

@@ -9,8 +9,9 @@
 // };
 
 export function filterByDirector(selectByDirector, data) {
+  if (!selectByDirector) return data.films;
 
-  const filteredFilmsByDirector = data.films.filter(film => {
+  const filteredFilmsByDirector = data.films.filter((film) => {
     return film.director === selectByDirector;
   });
 
@@ -22,23 +23,20 @@ function getFilteredFilms() {
   const selectByDirector = directorSelect.value;
 
   if (selectByDirector) {
-    return data.films.filter(film => film.director === selectByDirector);
+    return data.films.filter((film) => film.director === selectByDirector);
   } else {
     return data.films;
   }
 }
 
 export function handleOrderChange(orderSelect, data) {
-
   const sortedFilms = data.films.slice(); // Copia o array original para não modificá-lo diretamente
 
   if (orderSelect === "A-Z") {
-
     sortedFilms.sort(function (a, b) {
       return a.title.localeCompare(b.title);
     });
   } else if (orderSelect === "Z-A") {
-
     sortedFilms.sort(function (a, b) {
       return b.title.localeCompare(a.title);
     });
@@ -47,20 +45,27 @@ export function handleOrderChange(orderSelect, data) {
 }
 
 export function filterByReleaseDate(selectByDate, data) {
-  const filteredFilmsByReleaseDate = data.films.filter(film => {
+  const filteredFilmsByReleaseDate = data.films.filter((film) => {
     return film.release_date === selectByDate;
-  })
-  return filteredFilmsByReleaseDate
+  });
+  return filteredFilmsByReleaseDate;
 }
 
-function getFilteredFilmsByDate() {
-  const selectByDate = dateSelect.value;
+// Função que calcula a porcentagem de personagens de um filme específico
+function getTotalCharacters(data) {
+  return data.films.reduce((acc, film) => acc + film.people.length, 0);
+}
 
-  if (selectByDate) {
-    return data.films.filter(film => film.release_date === selectByDate);
-  } else {
-    return data.films;
-  }
+function getCharactersForFilm(filmId, data) {
+  const film = data.films.find((f) => f.id === filmId);
+  return film ? film.people.length : 0;
+}
+
+export function computeStats(filmId, data) {
+  const totalCharacters = getTotalCharacters(data);
+  const charactersForFilm = getCharactersForFilm(filmId, data);
+  const percentage = (charactersForFilm / totalCharacters) * 100;
+  return percentage.toFixed(2);
 }
 
 // computeStats(data)
