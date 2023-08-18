@@ -44,12 +44,9 @@ function showModal(filmId) {
   //const percentage = computeStats(filmId);
   const percentage = computeStats(filmId, data);
 
-  const modalContent = document.querySelector("#modal-content-id");
+  const modalPercentage = document.getElementById("percentage");
 
-  modalContent.innerHTML += `<p>O filme ${film.title} representa ${percentage}% do total de personagens.</p>`;
-
-  //modalContent.innerHTML = "";
-  //modalContent.innerHTML += `<p>O filme ${film.title} representa ${percentage}% do total de personagens.</p>`;
+  modalPercentage.textContent = `O Filme ${film.title} possui ${percentage}% do total de personagens da franquia`;
 
   // Encontre o filme correto no dataset usando o filmId
   const selectedFilm = data.films.find((film) => film.id === filmId);

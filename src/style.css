@@ -83,8 +83,9 @@ section {
     z-index: -1;
     text-align: center;
     transform: translateX(-50%) perspective(1000px) rotateY(180deg);
-
-    background-color: burlywood;
+    color: #281146;
+    font-size: 14px;
+    background-color: white;
 
 }
 
@@ -97,6 +98,10 @@ section {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
+    align-items: center;
+    justify-content: center;
+
+
 }
 
 .modal-content {
@@ -105,14 +110,15 @@ section {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-
     width: 80%;
     max-width: 800px;
     max-height: 90%;
     overflow: auto;
     border-radius: 8px;
-    background-color: #fff;
-    color: #111;
+    background: linear-gradient(#A18CD1, #FBC2EB, #FBC2EB);
+    color: #281146;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 .modal-content .wrap {
@@ -132,7 +138,9 @@ section {
 
 .film-poster-in-modal {
     width: 100%;
-    max-width: 200px;
+    height: 250px;
+    object-fit: cover;
+
 }
 
 .flip-card {
@@ -185,14 +193,30 @@ section {
     top: 0;
     left: 50%;
     width: 100%;
-    height: 250px;
+    height: 100%;
     border-radius: 5px;
-    text-align: right;
+    text-align: center;
     backface-visibility: hidden;
     transition: transform .5s ease-out;
     z-index: -1;
     text-align: center;
     transform: translateX(-50%) perspective(1000px) rotateY(180deg);
+    font-size: 12px;
+    background-color: white;
+}
 
-    background-color: burlywood;
+.percentage {
+    padding: 100px;
+    width: 50%;
+    /* largura do quadrado */
+    height: 100%;
+    /* altura do quadrado */
+    background-color: white;
+    /* cor de fundo branca */
+    padding: 20px;
+    /* espaço interno para afastar o conteúdo das bordas */
+
+    box-sizing: border-box;
+    /* inclui a borda no tamanho total */
+    align-items: center;
 }
