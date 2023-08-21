@@ -18,17 +18,6 @@ export function filterByDirector(selectByDirector, data) {
   return filteredFilmsByDirector;
 }
 
-// Função que retorna um novo array de filmes filtrados com base no diretor selecionado
-function getFilteredFilms() {
-  const selectByDirector = directorSelect.value;
-
-  if (selectByDirector) {
-    return data.films.filter((film) => film.director === selectByDirector);
-  } else {
-    return data.films;
-  }
-}
-
 export function handleOrderChange(orderSelect, data) {
   const sortedFilms = data.films.slice(); // Copia o array original para não modificá-lo diretamente
 
@@ -68,4 +57,11 @@ export function computeStats(filmId, data) {
   return percentage.toFixed(2);
 }
 
-// computeStats(data)
+export function filterBySearch(searchText, data){
+  const filteredFilmsBySearch = data.films.filter((film) => {
+    return film.title.toLowerCase() === searchText.toLowerCase();
+  });
+    return filteredFilmsBySearch;
+}
+
+

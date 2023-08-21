@@ -11,10 +11,7 @@
 </head>
 
 <body>
-  <header class="container"> 
-    <figure class="item">
-    <!-- <img src="./img/Totoro.png" alt="Totoro" id="totoro"> -->
-  </figure>
+  <header class="container">
     <figure class="item" id="logo">
       <a href="https://studioghibli.com.br/studioghibli/" target="_blank"><img src="./img/logo-studio-ghibli-branco.png"
           alt="LogoStudioGhibli" id="logo"></a>
@@ -30,9 +27,11 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main-home">
     <article>
-      <h2>Studio Ghibli</h2>
+      <div class="title-box">
+        <h2>Studio Ghibli</h2>
+      </div>
       <p>O Studio Ghibli é um estúdio de animação japonês, sediado em Koganei, Tóquio. Fundado em 1985, o estúdio já
         produziu 21 longas de animação,
         sendo o primeiro O Castelo no Céu (1986) e o mais recente As Memórias de Marnie (2014).
@@ -45,10 +44,13 @@
         Miyazaki e Isao Takahata. Toshio Suzuki, por sua vez, é o produtor da maioria deles. Em 2001, o Museu Ghibli, um
         museu dedicado as obras do estúdio,
         foi inaugurado.</p>
-      <img src="./img/museuGhibli.png" alt="museuStudioGhibli" width="600px" height="400px">
+      <img src="./img/museuGhibli.png" alt="museu Studio Ghibli" id="img-museu">
     </article>
     <article>
-      <h2>Hayao Miyazaki</h2>
+      <img src="./img/HayaoMiyazaki.jpg" alt="Hayao Miyazaki" id="img-Miyazaki">
+      <div class="title-box-2">
+        <h2>Hayao Miyazaki</h2>
+      </div>
       <p>Hayao Miyazaki é um animador, cineasta, roteirista, escritor e artista de mangá japonês. É co-fundador do
         Studio Ghibli, uma companhia de cinema e animação, tendo conquistado reconhecimento e aclamação internacional
         pela qualidade de seus vários longas-metragens de animação, os quais ele normalmente escreve e dirige, sendo
@@ -62,21 +64,18 @@
         apresentando antagonistas ambíguos que possuem qualidades redentoras. Suas obras já foram muito elogiadas e
         premiadas, com ele inclusive tendo recebido um Oscar Honorário em novembro de 2014 por suas contribuições para a
         animação.</p>
-      <img src="./img/HayaoMiyazaki.jpg" alt="HayaoMiyazaki" width="350px" height="500px">
     </article>
+    <section id="section-video">
+      <iframe width="734" height="413" src="https://www.youtube.com/embed/Kyp3YV2t0gQ"
+        title="Hayao Miyazaki: A Importância do Vazio" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </section>
+    <div id="btn-box">
+      <button><a href="index.html">FILMOGRAFIA</a></button>
+    </div>
 
-    <iframe width="734" height="413" src="https://www.youtube.com/embed/e5UGsVhYkC8"
-      title="STUDIO GHIBLI E HAYAO MIYAZAKI: A HISTÓRIA DE UMA LENDA | Retrato Omelete" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen></iframe>
-    <iframe width="734" height="413" src="https://www.youtube.com/embed/Kyp3YV2t0gQ"
-      title="Hayao Miyazaki: A Importância do Vazio" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen></iframe>
-
-    <button><a href="index.html">FILMOGRAFIA</a></button>
   </main>
-
 </body>
 
 </html>

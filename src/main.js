@@ -3,6 +3,7 @@ import {
   filterByReleaseDate,
   handleOrderChange,
   computeStats,
+  filterBySearch,
 } from "./data.js";
 // import data from './data/lol/lol.js';
 import data from "./data/ghibli/ghibli.js";
@@ -11,8 +12,9 @@ import data from "./data/ghibli/ghibli.js";
 const directorSelect = document.querySelector("#director");
 const orderSelect = document.querySelector("#order");
 const dateSelect = document.querySelector("#releaseDate");
-const filterForm = document.querySelector("form");
 const filmList = document.querySelector("#list");
+const searchText = document.querySelector(".search-text")
+const searchLocation = document.querySelector(".search-btn");
 
 //modal
 let modal = document.getElementById("filmModal");
@@ -147,7 +149,7 @@ function handleOrderSelectionChange() {
 orderSelect.addEventListener("change", handleOrderSelectionChange);
 
 function updatedFilmListBaseOnDate(films) {
-  filmList.innerHTML = ""; // Limpar o conteúdo atual
+  filmList.innerHTML = ""; 
 
   films.forEach((film) => {
     const filmItem = createFilmItem(film);
@@ -187,3 +189,23 @@ function makeDirectorOptions() {
 }
 
 makeDirectorOptions();
+
+function updatedFilmListBaseOnSearch(films){
+
+  filmList.innerHTML = "";
+
+  films.forEach((film) => {
+    const filmItem = createFilmItem(film);
+    filmList.innerHTML += filmItem;
+  });
+}
+
+function handleSearchLocation(event){
+  event.preventDefault()
+  const filteredFilmsBySearch = filterBySearch(searchText.value, data);
+  updatedFilmListBaseOnSearch(filteredFilmsBySearch);
+}
+
+searchLocation.addEventListener("click", handleSearchLocation);
+
+
