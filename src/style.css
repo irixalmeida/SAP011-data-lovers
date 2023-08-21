@@ -28,7 +28,7 @@ body {
     image-orientation: initial;
 }
 
-#logo {
+.logo {
     width: 250px;
     order: 1;
 }

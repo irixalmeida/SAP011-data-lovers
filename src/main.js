@@ -11,12 +11,11 @@ import data from "./data/ghibli/ghibli.js";
 const directorSelect = document.querySelector("#director");
 const orderSelect = document.querySelector("#order");
 const dateSelect = document.querySelector("#releaseDate");
-const filterForm = document.querySelector("form");
 const filmList = document.querySelector("#list");
 
 //modal
-let modal = document.getElementById("filmModal");
-let span = document.getElementById("closeModal");
+const modal = document.getElementById("filmModal");
+const span = document.getElementById("closeModal");
 
 filmList.addEventListener("click", function (event) {
   if (event.target.closest(".film-item")) {
@@ -168,7 +167,7 @@ span.onclick = function () {
 
 // Se o usuário clicar fora do conteúdo do modal, ele também será fechado
 window.onclick = function (event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 };
