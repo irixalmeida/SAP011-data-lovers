@@ -19,17 +19,17 @@ body {
 
 .container {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
     max-width: 1400px;
     padding: 3%;
     margin: 0 auto;
     flex-wrap: wrap;
+    /* border: 20px solid green; */
 }
 
-#logo {
+.logo {
     width: 250px;
-    margin-right: 5px;
-    margin-left: 1px;
 }
 
 nav {
@@ -46,7 +46,6 @@ nav ul {
 nav ul li {
     display: inline-block;
     margin: 10px;
-
 }
 
 nav ul li a {
@@ -63,8 +62,6 @@ nav ul li a:hover {
 }
 
 .search-box {
-    position: absolute;
-    right: 50px;
     background: white;
     height: 50px;
     border-radius: 40px;
@@ -72,7 +69,6 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 200px;
     box-shadow: .5px 10px 15px rgba(0, 0, 0, 0.459);
 }
 
@@ -144,18 +140,26 @@ nav ul li a:hover {
 
 article {
     display: flex;
-    /* display: inline-block; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px;
-    /* background-color: rgba(0, 0, 0, 0.199); */
 }
 
-#img-museu {
+#box-museum{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+#img-museum {
     width: 500px;
     height: 300px;
-    margin-left: 25px;
-    margin-top: -60px;
+}
+
+#box-Miyazaki {
+    display: flex;
+    justify-content: space-around;
+    width: 80%
 }
 
 #img-Miyazaki {
@@ -163,18 +167,6 @@ article {
     height: 500px;
     margin-right: 25px;
     margin-top: 35px;
-}
-
-.title-box{
-    /* display: flex; */
-    position: absolute;
-    margin-top: -500px;
-}
-
-.title-box-2{
-    position: absolute;
-    margin-top: -500px;
-    margin-bottom: 100px;
 }
 
 p {
@@ -190,7 +182,6 @@ p {
     justify-content: center;
     align-items: center;
     margin: auto;
-    /* background-color: rgba(0, 0, 0, 0.199); */
 }
 
 iframe {
@@ -501,3 +492,30 @@ footer{
 #box-arrowUpward a img{
     height: 25px;
 }
+
+@media screen and (max-width: 560px) {
+    .container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    nav ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #img-museum{
+        width: 300px;
+        height: 200px;
+    }
+    #img-Miyazaki{
+        width: 200px;
+        height: 300px;
+    }
+
+    #list{
+        flex-direction: column;
+    }
+}
+
+   
