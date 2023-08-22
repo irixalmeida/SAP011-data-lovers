@@ -531,7 +531,7 @@ footer {
     height: 25px;
 }
 
-#list p {
+#list>p {
     position: relative;
     bottom: 20px;
     left: 50%;
