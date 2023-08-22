@@ -5,6 +5,7 @@ import {
   getCharactersForFilm,
   getTotalCharacters,
   computeStats,
+  filterBySearch,
 } from "../src/data.js";
 
 import { data } from "./data.mock.js";
@@ -73,6 +74,18 @@ describe("Data functions", () => {
   });
 
   // Testes para filterByReleaseDate
+  it("returns all films if releaseDate is falsy", () => {
+    const dummyData = {
+      films: [
+        { release_date: "2020" },
+        { release_date: "2021" },
+        { release_date: "2020" },
+      ],
+    };
+    // Se passarmos uma data de lançamento nula, esperamos que todos os filmes sejam retornados.
+    expect(filterByReleaseDate(null, dummyData)).toEqual(dummyData.films);
+  });
+
   it("filters films by release date", () => {
     const dummyData = {
       films: [
@@ -107,9 +120,44 @@ it("get characters for film 1, must return 2", () => {
   // Esperamos que o filme com id "1" tenha 2 personagens.
   expect(getCharactersForFilm("1", data)).toBe(2);
 });
+it("returns 0 for characters if filmId is null", () => {
+  // Se passarmos um ID de filme nulo, esperamos que a função retorne 0.
+  expect(getCharactersForFilm(null, data)).toBe(0);
+});
+it("returns 0 for characters if filmId is an empty string", () => {
+  // Se passarmos uma string vazia como ID do filme, esperamos que a função retorne 0.
+  expect(getCharactersForFilm("", data)).toBe(0);
+});
 // Teste para verificar se a função retorna 0 para um filme que não existe.
 it("returns 0 for characters of a non-existent film", () => {
   // Se tentarmos pegar personagens para um filme com id "100" (que não existe nos dados de teste),
   // esperamos que a função retorne 0.
   expect(getCharactersForFilm("100", data)).toBe(0);
+});
+
+// Testes para filterBySearch para verificar se a função retorna os filmes com correspondência exata de título.
+const dummyData = {
+  films: [{ title: "Film 1" }, { title: "Film 2" }, { title: "Film 3" }],
+};
+
+describe("filterBySearch function", () => {
+  it("should return films with exact title match", () => {
+    const result = filterBySearch("Film 3", dummyData);
+    expect(result).toEqual([{ title: "Film 3" }]);
+  });
+  // Teste para verificar se a função retorna um array vazio se não houver correspondência de título.
+  it("should return an empty array if there is no title match", () => {
+    const result = filterBySearch("Film 4", dummyData);
+    expect(result).toEqual([]);
+  });
+  // Teste para verificar se a função retorna filmes mesmo se o texto de pesquisa estiver em maiúsculas ou minúsculas diferentes.
+  it("should return films even if the search text is in different case", () => {
+    const result = filterBySearch("Film 1", dummyData);
+    expect(result).toEqual([{ title: "Film 1" }]);
+  });
+  // Teste para verificar se a função retorna todos os filmes se o texto de pesquisa estiver vazio.
+  it("should return all array of films if search text is empty", () => {
+    const result = filterBySearch("", dummyData);
+    expect(result).toEqual(dummyData.films);
+  });
 });

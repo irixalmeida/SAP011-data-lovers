@@ -34,6 +34,7 @@ export function handleOrderChange(orderSelect, data) {
 }
 
 export function filterByReleaseDate(selectByDate, data) {
+  if (!selectByDate) return data.films;
   const filteredFilmsByReleaseDate = data.films.filter((film) => {
     return film.release_date === selectByDate;
   });
@@ -41,11 +42,11 @@ export function filterByReleaseDate(selectByDate, data) {
 }
 
 // Função que calcula a porcentagem de personagens de um filme específico
-function getTotalCharacters(data) {
+export function getTotalCharacters(data) {
   return data.films.reduce((acc, film) => acc + film.people.length, 0);
 }
 
-function getCharactersForFilm(filmId, data) {
+export function getCharactersForFilm(filmId, data) {
   const film = data.films.find((f) => f.id === filmId);
   return film ? film.people.length : 0;
 }
@@ -57,11 +58,10 @@ export function computeStats(filmId, data) {
   return percentage.toFixed(2);
 }
 
-export function filterBySearch(searchText, data){
+export function filterBySearch(searchText, data) {
+  if (!searchText) return data.films;
   const filteredFilmsBySearch = data.films.filter((film) => {
-    return film.title.toLowerCase() === searchText.toLowerCase();
+    return film.title.toLowerCase().includes(searchText.toLowerCase());
   });
-    return filteredFilmsBySearch;
+  return filteredFilmsBySearch;
 }
-
-

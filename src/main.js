@@ -83,13 +83,13 @@ function showModal(filmId) {
             <img src="${character.img}" alt="${character.name}" style="width:100%;height:100%;">
             <p>${character.name}</p>
           </div>
-          <div class="flip-card-back">
-            <h4>${character.name}</h4>
-            <p>Gênero: ${character.gender}</p>
-            <p>Idade: ${character.age}</p>
-            <p>Cor dos Olhos: ${character.eye_color}</p>
-            <p>Cor do Cabelo: ${character.hair_color}</p>
-            <p>Espécie: ${character.specie}</p>
+          <div class="flip-card-back" >
+            <h4 >${character.name}</h4>
+            <p class="flip-card-description">Gênero: ${character.gender}</p>
+            <p class="flip-card-description">Idade: ${character.age}</p>
+            <p class="flip-card-description">Cor dos Olhos: ${character.eye_color}</p>
+            <p class="flip-card-description">Cor do Cabelo: ${character.hair_color}</p>
+            <p class="flip-card-description">Espécie: ${character.specie}</p>
           </div>
         </div>
       </div>
@@ -156,6 +156,20 @@ function updatedFilmListBaseOnDate(films) {
     filmList.innerHTML += filmItem;
   });
 }
+function makeReleaseDateOptions() {
+  const releaseDatesList = data.films.map((film) => film.release_date);
+  // Remove os valores repetidos de um array
+  const uniqueReleaseDates = [...new Set(releaseDatesList)];
+
+  const options = uniqueReleaseDates.map(
+    (date) => ` <option value="${date}">${date}</option>`
+  );
+
+  // Concatena o valor anterior do select com os novos options
+  dateSelect.innerHTML += options.join("");
+}
+
+makeReleaseDateOptions();
 
 function handleDateSelectionChange() {
   const filteredFilmsByDate = filterByReleaseDate(dateSelect.value, data);
@@ -206,3 +220,16 @@ function handleSearchLocation(event) {
 }
 
 searchLocation.addEventListener("click", handleSearchLocation);
+
+searchLocation.addEventListener("click", function (e) {
+  e.preventDefault(); // Isso evitará que a página seja recarregada ao clicar na lupa
+
+  const searchTerm = searchText.value;
+  const filteredFilms = filterBySearch(searchTerm, data);
+
+  if (filteredFilms.length === 0) {
+    filmList.innerHTML = "<p>Nenhum filme encontrado com esse nome.</p>";
+  } else {
+    updateFilmList(filteredFilms);
+  }
+});

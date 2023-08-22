@@ -165,19 +165,19 @@ article {
     margin-top: 35px;
 }
 
-.title-box{
+.title-box {
     /* display: flex; */
     position: absolute;
     margin-top: -500px;
 }
 
-.title-box-2{
+.title-box-2 {
     position: absolute;
     margin-top: -500px;
     margin-bottom: 100px;
 }
 
-p {
+#main-home p {
     width: 500px;
     text-align: justify;
     font-size: 16px;
@@ -197,7 +197,7 @@ iframe {
     margin-bottom: 20px;
 }
 
-#btn-box{
+#btn-box {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -319,7 +319,7 @@ select option {
     width: 100%;
     top: 0;
     left: 50%;
-    border-radius: 5px;
+    border-radius: 8px;
     backface-visibility: hidden;
     transition: transform .5s ease-out;
     z-index: 1;
@@ -333,7 +333,7 @@ select option {
     left: 50%;
     width: 100%;
     height: 250px;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: right;
     backface-visibility: hidden;
     transition: transform .5s ease-out;
@@ -343,6 +343,8 @@ select option {
     color: #281146;
     font-size: 14px;
     background-color: white;
+
+
 
 }
 
@@ -359,10 +361,11 @@ select option {
     justify-content: center;
 
 
+
 }
 
 .modal-content {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -372,16 +375,18 @@ select option {
     max-height: 90%;
     overflow: auto;
     border-radius: 8px;
-    background: linear-gradient(#A18CD1, #FBC2EB, #FBC2EB);
-    color: #281146;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    color: #ffffff;
     font-family: 'Montserrat', sans-serif;
 
 }
 
 .modal-content .wrap {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 20px;
+
 
 }
 
@@ -395,7 +400,7 @@ select option {
 
 .film-poster-in-modal {
     width: 100%;
-    height: 250px;
+    height: 100%;
     object-fit: cover;
 
 }
@@ -407,6 +412,8 @@ select option {
     perspective: 1000px;
     margin: 10px;
     display: inline-block;
+    margin: 20px;
+    margin-bottom: 55px;
 }
 
 .flip-card-inner {
@@ -417,6 +424,7 @@ select option {
     transition: transform 0.6s;
     transform-style: preserve-3d;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .flip-card:hover .flip-card-front {
@@ -445,6 +453,13 @@ select option {
     transform: translateX(-50%);
 }
 
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
 .flip-card-back {
     position: absolute;
     top: 0;
@@ -456,35 +471,47 @@ select option {
     backface-visibility: hidden;
     transition: transform .5s ease-out;
     z-index: -1;
-    text-align: center;
     transform: translateX(-50%) perspective(1000px) rotateY(180deg);
     font-size: 12px;
-    background-color: white;
+    background-color: #281146;
+}
+
+
+
+.flip-card-description {
+    align-items: center;
+    font-size: 12px;
+    text-align: center -30%;
+    position: relative;
+    line-height: 0.8;
+
 }
 
 .percentage {
-    padding: 100px;
-    width: 50%;
-    /* largura do quadrado */
-    height: 100%;
-    /* altura do quadrado */
-    background-color: white;
-    /* cor de fundo branca */
+    position: relative;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 20px;
-    /* espaço interno para afastar o conteúdo das bordas */
-
+    margin-top: 100px;
+    width: 50%;
+    height: 100%;
+    background-color: white;
     box-sizing: border-box;
-    /* inclui a borda no tamanho total */
+    display: flex;
+    justify-content: center;
     align-items: center;
+    color: #281146;
+    border-radius: 8px;
 }
 
-footer{
+footer {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
 }
 
-#box-arrowUpward{
+#box-arrowUpward {
     background-color: white;
     width: 50px;
     height: 50px;
@@ -496,8 +523,28 @@ footer{
     position: absolute;
     margin-right: 50px;
     margin-bottom: 10px;
+
+
 }
 
-#box-arrowUpward a img{
+#box-arrowUpward a img {
     height: 25px;
+}
+
+#list p {
+    position: relative;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    margin-top: 100px;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #281146;
+    border-radius: 8px;
 }

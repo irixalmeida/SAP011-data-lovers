@@ -8,86 +8,73 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div id="root"></div>
-
-
   <header class="container">
     <figure class="item" id="logo">
-      <a href="https://studioghibli.com.br/studioghibli/" target="_blank"><img src="./img/logo-studio-ghibli-branco.png"
-          alt="LogoStudioGhibli" class="logo"></a>
+      <a href="/"><img src="./img/logo-studio-ghibli-branco.png" alt="LogoStudioGhibli" class="logo"></a>
     </figure>
     <nav class="item" id="menu">
       <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="index.html">Filmografia</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="filmografia.html">Filmografia</a></li>
         <li><a
             href="https://www.netflix.com/br/browse/genre/81227213#:~:text=Studio%20Ghibli%20Movies%20%7C%20Site%20oficial%20da%20Netflix"
             target="_blank">Assistir aos filmes</a></li>
       </ul>
     </nav>
-    <div class="search-box">
-      <input type="text" class="search-text" placeholder="Pesquisar...">
-      <a href="" class="search-btn">
-        <img src="./img/loupe-blue.png" alt="lupa azul" class="loupe-blue" class="search-btn">
-        <img src="./img/loupe-white.png" alt="lupa branca" class="loupe-white" class="search-btn">
-      </a>
-    </div>
   </header>
 
-  <main>
-    <figure>
-      <img src="" alt="" id="poster">
-      <figcaption id="title"></figcaption>
-      <p id="description"></p>
-    </figure>
-    
-    <section>
-      <label for="director"></label>
-      <select name="diretor" id="director">
-        <option value="" selected class="selected">Escolha um diretor</option>
-      </select>
-
-      <label for="order"></label>
-      <select name="ordenação" id="order">
-        <option value="" selected class="selected">Ordenar</option>
-        <option value="A-Z" id="orderCresc">A-Z</option>
-        <option value="Z-A" id="orderDecr">Z-A</option>
-      </select>
-
-      <label for="releaseDate"></label>
-      <select name="releaseDate" id="releaseDate">
-        <option value="" selected class="selected">Ano de lançamento</option>
-      </select>
-    </section>
-
-    <div id="list"></div>
-
-    <div class="modal" id="filmModal">
-      <div class="modal-content" id="modal-content-id">
-
-        <span class="close-button" id="closeModal">&times;</span>
-
-        <div id="filmDetails"></div>
-        <div id="charactersList"></div>
-        <p id="percentage" class="percentage"></p>
+  <main id="main-home">
+    <article>
+      <div class="title-box">
+        <h2>Studio Ghibli</h2>
       </div>
+      <p>O Studio Ghibli é um estúdio de animação japonês, sediado em Koganei, Tóquio. Fundado em 1985, o estúdio já
+        produziu 21 longas de animação,
+        sendo o primeiro O Castelo no Céu (1986) e o mais recente As Memórias de Marnie (2014).
+        O Studio Ghibli foi fundado em 1985 por Hayao Miyazaki, Isao Takahata, Toshio Suzuki e Yasuyoshi Tokuma, logo
+        após o sucesso de Nausicaä
+        do Vale do Vento, no ano anterior. O estúdio lançou seu primeiro filme, O Castelo no Céu, no ano seguinte. O
+        logotipo da empresa é o Totoro,
+        o personagem do filme Meu Amigo Totoro, lançado em 1988. Com exceção de seis produções, todos os filmes do
+        estúdio foram dirigidos por Hayao
+        Miyazaki e Isao Takahata. Toshio Suzuki, por sua vez, é o produtor da maioria deles. Em 2001, o Museu Ghibli, um
+        museu dedicado as obras do estúdio,
+        foi inaugurado.</p>
+      <img src="./img/museuGhibli.png" alt="museu Studio Ghibli" id="img-museu">
+    </article>
+    <article>
+      <img src="./img/HayaoMiyazaki.jpg" alt="Hayao Miyazaki" id="img-Miyazaki">
+      <div class="title-box-2">
+        <h2>Hayao Miyazaki</h2>
+      </div>
+      <p>Hayao Miyazaki é um animador, cineasta, roteirista, escritor e artista de mangá japonês. É co-fundador do
+        Studio Ghibli, uma companhia de cinema e animação, tendo conquistado reconhecimento e aclamação internacional
+        pela qualidade de seus vários longas-metragens de animação, os quais ele normalmente escreve e dirige, sendo
+        amplamente considerado como um dos principais nomes da indústria de animação japonesa.
+
+        Os trabalhos de Miyazaki são caracterizados pela recorrência de diversos temas, como a relação da humanidade com
+        a natureza e tecnologia, a integridade de padrões de vida naturais e tradicionais, a importância da arte e
+        perícia e a dificuldade de manter uma ética pacifista em um mundo violento.
+
+        Suas protagonistas são frequentemente meninas ou jovens mulheres fortes, com muitos de seus trabalhos
+        apresentando antagonistas ambíguos que possuem qualidades redentoras. Suas obras já foram muito elogiadas e
+        premiadas, com ele inclusive tendo recebido um Oscar Honorário em novembro de 2014 por suas contribuições para a
+        animação.</p>
+    </article>
+    <section id="section-video">
+      <iframe width="734" height="413" src="https://www.youtube.com/embed/Kyp3YV2t0gQ"
+        title="Hayao Miyazaki: A Importância do Vazio" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </section>
+    <div id="btn-box">
+      <button><a href="filmografia.html">FILMOGRAFIA</a></button>
     </div>
+
   </main>
-
-  <footer>
-    <div id="box-arrowUpward">
-      <a href="./index.html">
-        <img src="./img/arrowUpward.png" alt="Seta para voltar ao topo">
-      </a>
-    </div>
-  </footer>
-
-  <script src="main.js" type="module"></script>
-
 </body>
 
 </html>
