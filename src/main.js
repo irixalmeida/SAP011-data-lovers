@@ -13,12 +13,12 @@ const directorSelect = document.querySelector("#director");
 const orderSelect = document.querySelector("#order");
 const dateSelect = document.querySelector("#releaseDate");
 const filmList = document.querySelector("#list");
-const searchText = document.querySelector(".search-text")
+const searchText = document.querySelector(".search-text");
 const searchLocation = document.querySelector(".search-btn");
 
 //modal
-let modal = document.getElementById("filmModal");
-let span = document.getElementById("closeModal");
+const modal = document.getElementById("filmModal");
+const span = document.getElementById("closeModal");
 
 filmList.addEventListener("click", function (event) {
   if (event.target.closest(".film-item")) {
@@ -149,7 +149,7 @@ function handleOrderSelectionChange() {
 orderSelect.addEventListener("change", handleOrderSelectionChange);
 
 function updatedFilmListBaseOnDate(films) {
-  filmList.innerHTML = ""; 
+  filmList.innerHTML = "";
 
   films.forEach((film) => {
     const filmItem = createFilmItem(film);
@@ -170,7 +170,7 @@ span.onclick = function () {
 
 // Se o usuário clicar fora do conteúdo do modal, ele também será fechado
 window.onclick = function (event) {
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 };
@@ -190,8 +190,7 @@ function makeDirectorOptions() {
 
 makeDirectorOptions();
 
-function updatedFilmListBaseOnSearch(films){
-
+function updatedFilmListBaseOnSearch(films) {
   filmList.innerHTML = "";
 
   films.forEach((film) => {
@@ -200,12 +199,10 @@ function updatedFilmListBaseOnSearch(films){
   });
 }
 
-function handleSearchLocation(event){
-  event.preventDefault()
+function handleSearchLocation(event) {
+  event.preventDefault();
   const filteredFilmsBySearch = filterBySearch(searchText.value, data);
   updatedFilmListBaseOnSearch(filteredFilmsBySearch);
 }
 
 searchLocation.addEventListener("click", handleSearchLocation);
-
-
