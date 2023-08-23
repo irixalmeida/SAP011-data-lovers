@@ -19,17 +19,17 @@ body {
 
 .container {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
     max-width: 1400px;
     padding: 3%;
     margin: 0 auto;
     flex-wrap: wrap;
+    /* border: 20px solid green; */
 }
 
 .logo {
     width: 250px;
-    margin-right: 5px;
-    margin-left: 1px;
 }
 
 nav {
@@ -46,7 +46,6 @@ nav ul {
 nav ul li {
     display: inline-block;
     margin: 10px;
-
 }
 
 nav ul li a {
@@ -63,8 +62,6 @@ nav ul li a:hover {
 }
 
 .search-box {
-    position: absolute;
-    right: 50px;
     background: white;
     height: 50px;
     border-radius: 40px;
@@ -72,7 +69,6 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 200px;
     box-shadow: .5px 10px 15px rgba(0, 0, 0, 0.459);
 }
 
@@ -142,47 +138,23 @@ nav ul li a:hover {
     /* width: 960px; */
 }
 
-article {
+#main-home article {
     display: flex;
-    /* display: inline-block; */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px;
-    /* background-color: rgba(0, 0, 0, 0.199); */
+    margin-bottom: 50px;
 }
 
-#img-museu {
+#box-museum {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+#img-museum {
     width: 500px;
     height: 300px;
-    margin-left: 25px;
-    margin-top: -60px;
-}
-
-#img-Miyazaki {
-    width: 350px;
-    height: 500px;
-    margin-right: 25px;
-    margin-top: 35px;
-}
-
-.title-box {
-    /* display: flex; */
-    position: absolute;
-    margin-top: -500px;
-}
-
-.title-box-2 {
-    position: absolute;
-    margin-top: -500px;
-    margin-bottom: 100px;
-}
-
-#main-home p {
-    width: 500px;
-    text-align: justify;
-    font-size: 16px;
-    line-height: 25px;
-    font-weight: 500;
 }
 
 #section-video {
@@ -190,7 +162,6 @@ article {
     justify-content: center;
     align-items: center;
     margin: auto;
-    /* background-color: rgba(0, 0, 0, 0.199); */
 }
 
 iframe {
@@ -547,4 +518,155 @@ footer {
     align-items: center;
     color: #281146;
     border-radius: 8px;
+}
+
+#main-home .wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+#main-home p {
+    max-width: 500px;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 25px;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+}
+
+#main-home .wrap img {
+    width: 55%;
+    height: 325px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+#main-home article:nth-child(2) .wrap img {
+    height: 430px;
+    object-position: 0 -45px;
+}
+
+@media screen and (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        gap: 15px;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        padding: 0;
+    }
+
+    #main-home .wrap {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #main-home article:first-of-type .wrap {
+        flex-direction: column-reverse;
+    }
+
+    #main-home .wrap img {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    #list {
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+
+    #list>p {
+        width: 100%;
+    }
+
+    #list .film-item {
+        width: 100%;
+        height: 310px;
+    }
+
+    #list .film-item img {
+        object-position: top;
+    }
+
+    #filmografia section {
+        margin-bottom: 30px;
+    }
+
+    .search-box {
+        margin: 20px 0;
+        width: 90%;
+    }
+
+    .search-box .search-text {
+        width: calc(100% - 50px);
+        padding-left: 20px;
+        height: 100%;
+    }
+
+    .search-box .search-btn {
+        background-color: #447ce7;
+    }
+
+    .search-box .search-btn .loupe-blue {
+        display: none;
+    }
+
+    .search-box .search-btn .loupe-white {
+        display: block;
+    }
+
+    select {
+        width: 90%;
+        margin-left: 0;
+        background-position: 98% center;
+    }
+
+    .modal-content .wrap {
+        flex-direction: column;
+    }
+
+    .film-poster-in-modal {
+        object-position: top;
+        height: 250px;
+        margin-top: 30px;
+    }
+
+    #charactersList {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    #charactersList h4 {
+        width: 100%;
+    }
+
+    #charactersList .flip-card {
+        width: calc(50% - 40px);
+    }
+
+    .percentage {
+        width: 100%;
+    }
 }
