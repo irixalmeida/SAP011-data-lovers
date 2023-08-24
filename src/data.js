@@ -42,11 +42,11 @@ export function filterByReleaseDate(selectByDate, data) {
 }
 
 // Função que calcula a porcentagem de personagens de um filme específico
-function getTotalCharacters(data) {
+export function getTotalCharacters(data) {
   return data.films.reduce((acc, film) => acc + film.people.length, 0);
 }
 
-function getCharactersForFilm(filmId, data) {
+export function getCharactersForFilm(filmId, data) {
   const film = data.films.find((f) => f.id === filmId);
   return film ? film.people.length : 0;
 }
