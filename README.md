@@ -77,9 +77,49 @@ O produto atende à necessidade dos usuários de ter uma plataforma onde possam 
 **Eu quero** acessar uma página web interativa e informativa
 **Para que eu possa** explorar e aprender mais sobre as animações, diretores, personagens e detalhes relevantes do estúdio.
 
-## Histórias do Usuário e Critérios de Aceitação
+1. **Explorar a Home:**
 
-Por favor, consulte o conteúdo formatado acima para as histórias do usuário e seus respectivos critérios de aceitação.
+   - **Dado que** sou um usuário interessado nas animações do Estúdio Ghibli,
+   - **Quando** acesso a página inicial,
+   - **Então** vejo um breve texto introdutório sobre o estúdio, imagens e um botão de navegação.
+
+2. **Navegar pela Filmografia:**
+
+   - **Dado que** cliquei no botão de navegação,
+   - **Quando** acesso a página de navegação,
+   - **Então** encontro cards com as capas dos filmes do estúdio.
+   - **E** cada card exibe informações breves sobre o filme, incluindo título, diretor e ano de lançamento.
+   - **E** os cards são ordenados por ordem alfabética (A-Z) por padrão.
+
+3. **Ordenar Filmes Alfabeticamente:**
+
+   - **Dado que** estou na página de navegação,
+   - **Quando** utilizo a opção de ordenação alfabética,
+   - **Então** os cards dos filmes são reorganizados em ordem alfabética inversa (Z-A).
+
+4. **Filtrar por Diretor:**
+
+   - **Dado que** estou na página de navegação,
+   - **Quando** utilizo o campo de filtro e seleciono um diretor,
+   - **Então** vejo apenas os filmes dirigidos por esse diretor nos cards.
+
+5. **Filtrar por Data:**
+
+   - **Dado que** estou na página de navegação,
+   - **Quando** utilizo o campo de filtro e seleciono uma data,
+   - **Então** vejo apenas os filmes do ano selecionado nos cards.
+
+6. **Detalhes do Filme:**
+
+   - **Dado que** estou na página de navegação e cliquei em um card de filme,
+   - **Quando** o card se expande,
+   - **Então** vejo informações detalhadas sobre o filme, incluindo descrição, diretor, ano de lançamento e lista de personagens com cards interativos.
+
+7. **Porcentagem de Personagens:**
+   - **Dado que** estou visualizando os detalhes de um filme,
+   - **Quando** examino a seção de personagens,
+   - **Então** vejo a porcentagem representada pelos personagens do filme em relação ao total de personagens de todas as animações do estúdio.
+
 
 ## Desenvolvedores
 
